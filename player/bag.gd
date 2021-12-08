@@ -13,7 +13,7 @@ onready var spaces: Array = [space0, space1, space2, space3, space4]
 onready var character = get_parent()
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	rotation = -character.aim.angle_to(Vector2.UP)
 	get_child(index).flip(character.aim.x)
 	if Input.is_key_pressed(KEY_1):

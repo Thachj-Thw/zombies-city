@@ -130,7 +130,6 @@ position = Vector2( -512, -300 )
 script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="basePosition/mouse"]
-visible = false
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 

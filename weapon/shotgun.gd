@@ -1,8 +1,9 @@
 extends Node2D
 
 
-var hps: float = 0.3
-var damage: int = 100
+export(float) var hps: float = 0.3
+export(int) var damage: int = 100
+export(int) var shoot_range: int = 150
 var can_hit: bool = true
 
 onready var bullet = preload("res://weapon/bullet.tscn")
@@ -20,16 +21,19 @@ func attack(aim: Vector2):
 		var b = bullet.instance()
 		b.damage = damage
 		b.velocity = aim
+		b.s_range = shoot_range
 		b.rotation = -aim.angle_to(Vector2.UP)
 		var b2 = bullet.instance()
 		var aim2 = aim.rotated(deg2rad(20))
 		b2.damage = damage
 		b2.velocity = aim2
+		b2.s_range = shoot_range
 		b.rotation = -aim2.angle_to(Vector2.UP)
 		var b3 = bullet.instance()
 		var aim3 = aim.rotated(deg2rad(-20))
 		b3.damage = damage
 		b3.velocity = aim3
+		b3.s_range = shoot_range
 		b3.rotation = -aim3.angle_to(Vector2.UP)
 		$Animation.play("attack")
 		Global.instance_node(b, $Sprite/Position2D.global_position)
